@@ -1,0 +1,1 @@
+console.log ("Hello! Today is December 16th.") ;
