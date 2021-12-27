@@ -1,1 +1,2 @@
-console.log ("Hello! Today is December 16th.") ;
+// hello.js
+console.log( "Hello! Today is December 26th." ) ;
