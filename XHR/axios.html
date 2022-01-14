@@ -1,0 +1,30 @@
+<!--說明 axios可以前後端都可使用的原因 -->
+<!--尚未理解完01.14 -->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>XHR axios可以前後端都可使用的原因</title>
+    </head>
+    <body>
+        <button id="asyncBtn">非同步</button>
+        <div id="response">message</div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+        var responseDom = document.getElementById("response");
+
+        var asyncBtn = document.getElementById("asyncBtn");
+        asyncBtn.addEventListener("click", function () {
+            responseDom.innerText = "開始「非」同步請求";
+            axios
+            .get("http://34.221.173.92:3000/data")
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+        });
+        </script>
+    </body>
+</html>

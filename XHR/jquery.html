@@ -1,0 +1,38 @@
+<!--AJAX = Asynchronous JavaScript And XML -->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>XHR</title>
+    </head>
+    <body>
+        <button id="asyncBtn">非同步</button>
+        <div id="response">message</div>
+        <script   
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+        ></script>  <!--CDN，integrity保證CDN下載到電腦安全-->
+        <script>
+        var responseDom = document.getElementById("response");
+
+        var asyncBtn = document.getElementById("asyncBtn");
+        asyncBtn.addEventListener("click", function () {
+            responseDom.innerText = "開始「非」同步請求";
+            // 小賴老師加寫
+            $.ajax("http://34.221.173.92:3000/data", { method: "GET" })
+            .done((order) => {
+                console.log(order);
+            })
+            .fail((xhr, status) => {
+                console.error(`發生錯誤 ${status}`);
+            });
+        });
+        // $變數，.ajax方法第一個參數為網址，第二個參數為設定setting，(資料取得方法)，練習看jquery.ajax文件
+        // .done為Promise形式(Promise Interface)，以前古老時是要寫callback。拿到資料為order。
+        // .fail失敗((xhr第一個參數為XMHttpRequest物件在這裡, status錯誤訊息)
+        // console.error與開發者工具裡顯示位置有關
+        // { method: "GET" } 有幾種:GET,POST,PUT/Patch一個是修改完成一個是修改部分資料,DELETE，通常 拿到,新增,修改,刪除 資料 
+        </script>
+    </body>
+</html>
