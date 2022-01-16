@@ -23,34 +23,44 @@ const { readFile } = require("fs"); //自NodeJS System讀進readFile
 //     console.log(result);
 //  });
 
- 
+
 // 本來自己寫錯的版本，試著改成對的版本
 // Promise 物件代表一個即將完成、或失敗的非同步操作，以及它所產生的值。
- let doReadfile = function (dataname, translate) {
+let doReadfile = function (dataname, translate) {
 
-    return new Promise( (resolve, reject) => {
+return new Promise( (resolve, reject) => {
 
-        readFile( dataname, translate, (err, data) => {
-            if (err) {
-                // reject(console.error(err));
-                reject(err);
-                // return; ???我原來沒加
-            }
-            // resolve(console.log(data));
-            resolve(data);
+    readFile( dataname, translate, (err, data) => {
+        if (err) {
+            // reject(console.error(err));
+            reject(err);
+            // return; ???我原來沒加
+        }
+        // resolve(console.log(data));
+        resolve(data);
 
-        });
-    
     });
-    
- };
 
- doReadfile("test.txt", "utf-8").then( (result) => {
-    console.log(result);
- })
- .catch( (err) => {
-    console.error(err);
- });
+});
+
+};
+
+// 老師解釋下面.then((result) => { });的概念。
+// let okFunc = (result) => {   
+// console.log(result);
+// };
+
+// doReadfile("test.txt", "utf-8").then(okFunc)
+// .catch( (err) => {
+// console.error(err);
+// });
+
+doReadfile("test.txt", "utf-8").then( (result) => {
+console.log(result);
+})
+.catch( (err) => {
+console.error(err);
+});
 // 
 // 印出   // 寫resolve(console.log(data));的狀態下
 // 2022.01.08 MFEE22 readFile test in NodeJS class.
