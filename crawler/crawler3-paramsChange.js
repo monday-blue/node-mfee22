@@ -20,8 +20,11 @@ function doreadFile(filename, traslate){
 (async () => {
   try {
     // 根據變數去抓取資料
-    let stockNo = await doreadFile("stock.txt", "utf-8");
-    let queryDate = "20220115";
+    let stockNo = await doreadFile("stock.txt", "utf-8");  // TODO:自動讀檔案stock.txt的資料，去撈該代碼所代表公司的股票資訊。2330:台積電，2603:長榮。
+
+    let today = new Date();
+    let queryDate = today.getDate();  // TODO::自動抓到今天的日期，並去撈今天的股票資訊。
+    
 
     // let response = await axios.get(
     //   `https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=${queryDate}&stockNo=${stockNo}`
