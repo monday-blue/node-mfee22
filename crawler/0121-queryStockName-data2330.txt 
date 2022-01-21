@@ -1,0 +1,11 @@
+// 20220121141453
+// https://www.twse.com.tw/zh/api/codeQuery?query=2330&_=1642745683173
+
+{
+  "query": "2330",
+  "suggestions": [
+    "2330\t台積電",
+    "2330R\t台積甲",
+    "2330T\t台積丙"
+  ]
+}
